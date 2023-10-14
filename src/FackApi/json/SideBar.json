@@ -22,14 +22,26 @@
   },
   {
     "title": "ejercicio",
-    "name": "Ejercicio Realizado",
+    "name": "Vehiculos",
     "is_heading": false,
     "is_active": false,
     "class_name": "",
     "is_icon_class": true,
-    "icon": "ri-file-list-fill",
+    "icon": "focus-2",
     "link": {
       "name" : "ejercicio.listado"
+    }
+  },
+  {
+    "title": "tipoplaca",
+    "name": "Tipos de placa",
+    "is_heading": false,
+    "is_active": false,
+    "class_name": "",
+    "is_icon_class": true,
+    "icon": "focus-2",
+    "link": {
+      "name" : "tipoplaca.tipoplaca"
     }
   }
 ]

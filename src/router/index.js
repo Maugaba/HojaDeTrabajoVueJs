@@ -91,6 +91,8 @@ import AppTreeView from '../views/Plugins/AppTreeView'
 // Ejercicio1
 import Ejercicio from '../views/App/Ejercicio/Ejercicio.vue'
 
+import TiposdePlaca from '../views/App/Ejercicio/TiposdePlaca.vue'
+
 Vue.use(VueRouter)
 
 const Ejercicio1 = (prop, mode) => [
@@ -99,6 +101,15 @@ const Ejercicio1 = (prop, mode) => [
     name: prop + '.listado',
     meta: { dark: mode, auth: true, name: 'listado' },
     component: Ejercicio
+  }
+]
+
+const TiposdePlaca1 = (prop, mode) => [
+  {
+    path: 'tipoplaca',
+    name: prop + '.tipoplaca',
+    meta: { dark: mode, auth: true, name: 'TiposdePlaca' },
+    component: TiposdePlaca
   }
 ]
 
@@ -574,6 +585,13 @@ const routes = [
     component: Layout1,
     meta: { auth: true },
     children: Ejercicio1('ejercicio')
+  },
+  {
+    path: '/tipoplaca',
+    name: 'tipoplaca',
+    component: Layout1,
+    meta: { auth: true },
+    children: TiposdePlaca1('tipoplaca')
   },
   {
     path: '/',
