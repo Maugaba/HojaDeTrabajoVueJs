@@ -58,7 +58,7 @@
           </iq-card>
         </b-col>
     </b-row>
-    <b-modal id="modal-1" ref="modal-1" size="xl" title="Bienvenido al modal de ingreso de equipos">
+    <b-modal id="modal-1" ref="modal-1" size="xl" title="Bienvenido al modal de ingreso de tipos de placas">
         <form>
           <div class="row">
             <div class="col-md-6 mb-3">
@@ -83,20 +83,6 @@
                 v-model.trim="$v.form.Descripcion.$model"
                 :state="!$v.form.Descripcion.$error"
                 placeholder="Ingrese descripcion"
-              >
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12 mb-3">
-              <label for="Estado">Estado</label>
-              <input
-                required
-                class="form-control"
-                id="Estado"
-                type="number"
-                v-model.trim="$v.form.Estado.$model"
-                :state="!$v.form.Estado.$error"
-                placeholder="Ingresar estado"
               >
             </div>
           </div>
@@ -135,20 +121,6 @@
                 v-model.trim="$v.form.Descripcion.$model"
                 :state="!$v.form.Descripcion.$error"
                 placeholder="Ingrese descripcion"
-              >
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12 mb-3">
-              <label for="Estado">Estado</label>
-              <input
-                required
-                class="form-control"
-                id="Estado"
-                type="number"
-                v-model.trim="$v.form.Estado.$model"
-                :state="!$v.form.Estado.$error"
-                placeholder="Ingresar estado"
               >
             </div>
           </div>
@@ -246,7 +218,12 @@ export default {
         Estado: me.form.Estado })
         .then((response) => {
           me.refresh()
-          me.getDatos()
+          this.$v.$reset()
+          this.$refs['modal-2'].hide()
+          this.form.id = ''
+          this.form.NombreTipodePlaca = ''
+          this.form.Descripcion = ''
+          this.form.state = 1
         })
         .catch((error) => {
           console.error('Error!', error)
@@ -284,12 +261,6 @@ export default {
         console.log(datos.id)
         console.log('Eliminado')
         this.refresh()
-        this.getDatos()
-      })
-    },
-    getDatos () {
-      axios.get(laravelUrl + '/tiposdeplaca/getTodos').then((response) => {
-        this.datosPosts = response.data
       })
     },
     /* Guardar */
@@ -298,10 +269,15 @@ export default {
       axios.post(laravelUrl + '/tiposdeplaca/', {
         NombreTipodePlaca: me.form.NombreTipodePlaca,
         Descripcion: me.form.Descripcion,
-        Estado: me.form.Estado })
+        Estado: 1 })
         .then((response) => {
-          me.getDatos()
           me.refresh()
+          this.$v.$reset()
+          this.$refs['modal-1'].hide()
+          this.form.id = ''
+          this.form.NombreTipodePlaca = ''
+          this.form.Descripcion = ''
+          this.form.state = 1
         })
         .catch((error) => {
           console.error('Error!', error)
