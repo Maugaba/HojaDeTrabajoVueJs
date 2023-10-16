@@ -31,5 +31,18 @@
     "link": {
       "name" : "ejercicio.listado"
     }
+  },
+  {
+    "title": "Vehiculo",
+    "name": "Vehiculo",
+    "is_heading": false,
+    "is_active": false,
+    "class_name": "",
+    "is_icon_class": true,
+    "icon": "ri-file-list-fill",
+    "link": {
+      "name" : "vehiculo.vehiculo"
+    }
   }
+
 ]

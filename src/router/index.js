@@ -90,6 +90,8 @@ import AppTreeView from '../views/Plugins/AppTreeView'
 // App views
 // Ejercicio1
 import Ejercicio from '../views/App/Ejercicio/Ejercicio.vue'
+// Vehiculo
+import Vehiculo from '../views/App/Vehiculo/Vehiculo'
 
 Vue.use(VueRouter)
 
@@ -99,6 +101,15 @@ const Ejercicio1 = (prop, mode) => [
     name: prop + '.listado',
     meta: { dark: mode, auth: true, name: 'listado' },
     component: Ejercicio
+  }
+]
+
+const rutaVehiculo = (prop, mode) => [
+  {
+    path: 'vehiculo',
+    name: prop + '.vehiculo',
+    meta: { dark: mode, auth: true, name: 'vehiculo' },
+    component: Vehiculo
   }
 ]
 
@@ -574,6 +585,13 @@ const routes = [
     component: Layout1,
     meta: { auth: true },
     children: Ejercicio1('ejercicio')
+  },
+  {
+    path: '/vehiculo',
+    name: 'vehiculo',
+    component: Layout1,
+    meta: { auth: true },
+    children: rutaVehiculo('vehiculo')
   },
   {
     path: '/',
